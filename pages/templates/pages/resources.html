@@ -3,117 +3,21 @@
 {% block title %}Resources | ClassroomHub{% endblock %}
 
 {% block content %}
-<style>
-    .page-header {
-        margin-bottom: 32px;
-    }
-    .page-header h2 {
-        font-size: 2rem;
-        font-weight: 800;
-        letter-spacing: -0.025em;
-        margin-bottom: 8px;
-    }
-    .page-header p {
-        color: var(--text-muted);
-        font-size: 1.05rem;
-    }
-    .resources-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 20px;
-    }
-    .resource-card {
-        background: var(--surface);
-        border: 1px solid var(--border-color);
-        border-radius: var(--radius-md);
-        padding: 24px;
-        box-shadow: var(--shadow-sm);
-        transition: all 0.25s ease;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-    .resource-card:hover {
-        transform: translateY(-3px);
-        box-shadow: var(--shadow-md);
-        border-color: #cbd5e1;
-    }
-    .resource-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 12px;
-        gap: 12px;
-    }
-    .resource-card h3 {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: var(--text-main);
-    }
-    .category-badge {
-        font-size: 0.8rem;
-        font-weight: 600;
-        padding: 4px 10px;
-        border-radius: 6px;
-        background-color: var(--primary-light);
-        color: var(--primary);
-        display: inline-block;
-        margin-bottom: 16px;
-    }
-    .status-badge {
-        font-size: 0.8rem;
-        font-weight: 700;
-        padding: 4px 10px;
-        border-radius: 9999px;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-    }
-    .status-available {
-        background-color: #dcfce7;
-        color: #15803d;
-    }
-    .status-soon {
-        background-color: #fef3c7;
-        color: #b45309;
-    }
-</style>
+    <h2 style="margin-bottom: 8px; color: #1a202c;">Learning resources</h2>
+    <p style="margin-bottom: 20px; color: #4a5568;">Browse the available learning materials.</p>
 
-<div class="page-header">
-    <h2>Learning resources</h2>
-    <p>Browse the available learning materials.</p>
-</div>
-
-<div class="resources-list">
     {% for resource in resources %}
-        <article class="resource resource-card">
-            <div>
-                <div class="resource-header">
-                    <h3>{{ resource.title }}</h3>
-                    {% if resource.available %}
-                        <span class="status-badge status-available">
-                            <i class="fa-solid fa-check"></i> Available
-                        </span>
-                    {% else %}
-                        <span class="status-badge status-soon">
-                            <i class="fa-solid fa-clock"></i> Coming soon
-                        </span>
-                    {% endif %}
-                </div>
-                <p><span class="category-badge">Category: {{ resource.category }}</span></p>
-            </div>
-            
-            <!-- Compatibilidad exacta con pruebas existentes -->
-            <div style="display: none;">
-                {% if resource.available %}
-                    <p>Available</p>
-                {% else %}
-                    <p>Coming soon</p>
-                {% endif %}
-            </div>
+        <article class="resource">
+            <h3>{{ resource.title }}</h3>
+            <p style="color: #4a5568; margin: 4px 0 8px;">Category: {{ resource.category }}</p>
+
+            {% if resource.available %}
+                <p style="color: #276749; font-weight: 500;">Available</p>
+            {% else %}
+                <p style="color: #c05621; font-weight: 500;">Coming soon</p>
+            {% endif %}
         </article>
     {% empty %}
         <p>No resources are available.</p>
     {% endfor %}
-</div>
 {% endblock %}

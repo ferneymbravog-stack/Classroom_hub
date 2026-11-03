@@ -4,196 +4,99 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}ClassroomHub{% endblock %}</title>
-    <!-- Google Fonts & Modern Icons -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
     <style>
-        :root {
-            --primary: #4f46e5;
-            --primary-hover: #4338ca;
-            --primary-light: #eef2ff;
-            --accent: #06b6d4;
-            --bg-body: #f8fafc;
-            --surface: #ffffff;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --border-color: #e2e8f0;
-            --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 25px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
-            --radius-md: 12px;
-            --radius-lg: 20px;
-        }
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
         body {
-            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            line-height: 1.6;
-        }
-
-        .header-wrapper {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-
-        header {
-            max-width: 1080px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 16px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            padding: 30px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background-color: #f7fafc;
         }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: var(--text-main);
+        header {
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 20px;
+            margin-bottom: 24px;
         }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.25rem;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        header h1 {
+            color: #1a202c;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
         }
-
-        .logo h1 {
-            font-size: 1.35rem;
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            background: linear-gradient(135deg, #1e1b4b, var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
         nav {
             display: flex;
-            align-items: center;
-            gap: 8px;
+            gap: 16px;
         }
-
         nav a {
-            color: var(--text-muted);
+            color: #3182ce;
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: background 0.15s;
         }
-
         nav a:hover {
-            color: var(--primary);
-            background-color: var(--primary-light);
-        }
-
-        main {
-            flex: 1;
-            max-width: 1080px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 40px 24px;
-        }
-
-        footer {
-            border-top: 1px solid var(--border-color);
-            background: var(--surface);
-            padding: 24px;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: auto;
-        }
-
-        /* Utilidades y componentes comunes */
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, var(--primary), #6366f1);
-            color: white !important;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-weight: 600;
+            background-color: #ebf8ff;
             text-decoration: none;
-            box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
-            transition: all 0.25s ease;
         }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.45);
+        main {
+            min-height: 300px;
         }
-
-        /* Estilos heredados para compatibilidad */
+        .btn {
+            display: inline-block;
+            background-color: #3182ce;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            margin-top: 12px;
+        }
+        .btn:hover {
+            background-color: #2b6cb0;
+        }
         .resource {
-            background: var(--surface);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 20px 24px;
-            margin-bottom: 16px;
-            box-shadow: var(--shadow-sm);
-            transition: all 0.25s ease;
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 14px;
         }
-        .resource:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-            border-color: #cbd5e1;
+        .resource h3 {
+            color: #2d3748;
+            margin-bottom: 6px;
+        }
+        footer {
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+            margin-top: 40px;
+            color: #718096;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <div class="header-wrapper">
-        <header>
-            <a href="{% url 'pages:home' %}" class="logo">
-                <div class="logo-icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-                <h1>ClassroomHub</h1>
-            </a>
-            <nav aria-label="Main navigation">
-                <a href="{% url 'pages:home' %}"><i class="fa-solid fa-house"></i> Home</a>
-                <a href="{% url 'pages:resources' %}"><i class="fa-solid fa-book-bookmark"></i> Resources</a>
-                <a href="{% url 'pages:about' %}"><i class="fa-solid fa-circle-info"></i> About</a>
-            </nav>
-        </header>
-    </div>
+    <header>
+        <h1>ClassroomHub</h1>
+        <nav aria-label="Main navigation">
+            <a href="{% url 'pages:home' %}">Home</a>
+            <a href="{% url 'pages:resources' %}">Resources</a>
+            <a href="{% url 'pages:about' %}">About</a>
+        </nav>
+    </header>
 
     <main>
         {% block content %}{% endblock %}
     </main>
 
     <footer>
-        <p><small>&copy; 2026 ClassroomHub — Modern Learning Platform Project</small></p>
+        <small>ClassroomHub — Learning project</small>
     </footer>
 </body>
 </html>
