@@ -3,7 +3,11 @@
 {% block title %}About | ClassroomHub{% endblock %}
 
 {% block content %}
-    <h2 style="margin-bottom: 12px; color: #1a202c;">About this project</h2>
-    <p style="margin-bottom: 8px;">{{ purpose }}</p>
-    <p style="color: #4a5568;">This site was built as a Django learning exercise.</p>
+<div class="content-card">
+    <h2 style="font-size: 1.7rem; color: #0f172a; margin-bottom: 12px;">About this project</h2>
+    <div style="background-color: #eff6ff; border-left: 4px solid #2563eb; padding: 14px 18px; border-radius: 4px; margin-bottom: 18px;">
+        <p style="color: #1e40af; font-weight: 500;">{{ purpose }}</p>
+    </div>
+    <p style="color: #475569;">This site was built as a Django learning exercise.</p>
+</div>
 {% endblock %}

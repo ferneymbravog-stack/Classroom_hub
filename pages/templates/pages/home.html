@@ -3,11 +3,13 @@
 {% block title %}Home | ClassroomHub{% endblock %}
 
 {% block content %}
-    <h2 style="margin-bottom: 10px; color: #1a202c;">Welcome</h2>
-    <p style="margin-bottom: 16px;">{{ welcome_message }}</p>
+<div class="content-card">
+    <h2 style="font-size: 1.7rem; color: #0f172a; margin-bottom: 12px;">Welcome</h2>
+    <p style="font-size: 1.05rem; color: #475569; margin-bottom: 24px;">{{ welcome_message }}</p>
     <p>
         <a href="{% url 'pages:resources' %}" class="btn">
-            Explore resources
+            Explore resources &rarr;
         </a>
     </p>
+</div>
 {% endblock %}
