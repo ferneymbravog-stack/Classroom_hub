@@ -3,7 +3,71 @@
 {% block title %}About | ClassroomHub{% endblock %}
 
 {% block content %}
-    <h2>About this project</h2>
-    <p>{{ purpose }}</p>
-    <p>This site was built as a Django learning exercise.</p>
+<style>
+    .about-card {
+        background: var(--surface);
+        border: 1px solid var(--border-color);
+        border-radius: var(--radius-lg);
+        padding: 40px;
+        box-shadow: var(--shadow-sm);
+        max-width: 720px;
+    }
+    .about-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+    .about-avatar {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        background: var(--primary-light);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+    .about-card h2 {
+        font-size: 1.85rem;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        color: var(--text-main);
+    }
+    .purpose-box {
+        background-color: #f1f5f9;
+        border-left: 4px solid var(--primary);
+        padding: 18px 20px;
+        border-radius: 0 10px 10px 0;
+        margin-bottom: 24px;
+        font-size: 1.05rem;
+        color: #334155;
+    }
+    .about-footer {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        border-top: 1px solid var(--border-color);
+        padding-top: 20px;
+    }
+</style>
+
+<div class="about-card">
+    <div class="about-header">
+        <div class="about-avatar">
+            <i class="fa-solid fa-compass-drafting"></i>
+        </div>
+        <div>
+            <h2>About this project</h2>
+        </div>
+    </div>
+
+    <div class="purpose-box">
+        <p>{{ purpose }}</p>
+    </div>
+
+    <div class="about-footer">
+        <p>This site was built as a Django learning exercise.</p>
+    </div>
+</div>
 {% endblock %}
