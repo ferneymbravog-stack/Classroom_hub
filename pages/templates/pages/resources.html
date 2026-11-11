@@ -1,4 +1,4 @@
-{% extends "pages/base.html" %}
+﻿{% extends "pages/base.html" %}
 
 {% block title %}Resources | ClassroomHub{% endblock %}
 
@@ -7,11 +7,20 @@
     <h2 style="font-size: 1.7rem; color: #0f172a; margin-bottom: 6px;">Learning resources</h2>
     <p style="color: #64748b; margin-bottom: 24px;">Browse the available learning materials.</p>
 
+    {% if perms.pages.add_resource %}
+        <p><a href="{% url 'pages:resource-create' %}">Add resource</a></p>
+    {% endif %}
+
     {% for resource in resources %}
         <article class="resource">
-            <h3 style="font-size: 1.15rem; color: #1e293b; margin-bottom: 4px;">{{ resource.title }}</h3>
+            <h3 style="font-size: 1.15rem; color: #1e293b; margin-bottom: 4px;">
+                <a href="{% url 'pages:resource-detail' resource.pk %}">{{ resource.title }}</a>
+            </h3>
+            {% if resource.description %}
+                <p style="color: #475569; margin-bottom: 8px;">{{ resource.description }}</p>
+            {% endif %}
             <p style="color: #64748b; font-size: 0.92rem; margin-bottom: 8px;">
-                Category: <strong>{{ resource.category }}</strong>
+                Category: <strong>{{ resource.category.name }}</strong>
             </p>
 
             {% if resource.available %}
@@ -29,3 +38,4 @@
     {% endfor %}
 </div>
 {% endblock %}
+
